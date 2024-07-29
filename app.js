@@ -38,10 +38,12 @@ app.post("/api/recipes", async (req, res) => {
   try {
     //Get request from provided body
     const bodyRequest = await req.body;
+    //Pass body request to function called in different file
     await createRecipe(bodyRequest);
+    //Pass body request as a response
     res.status(200).json({ success: true, payload: bodyRequest });
   } catch (err) {
-    console.log(err);
+    res.status(400).json({ success: false, payload: err });
   }
 });
 
