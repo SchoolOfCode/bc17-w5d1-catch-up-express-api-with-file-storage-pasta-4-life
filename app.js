@@ -36,6 +36,7 @@ app.get("/api/recipes/:id", async (req, res) => {
 
 app.post("/api/recipes", async (req, res) => {
   try {
+    //Get request from provided body
     const bodyRequest = await req.body;
     await createRecipe(bodyRequest);
     res.status(200).json({ success: true, payload: bodyRequest });

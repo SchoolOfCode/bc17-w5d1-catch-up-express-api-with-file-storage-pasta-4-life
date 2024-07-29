@@ -47,15 +47,10 @@ export async function createRecipe(newRecipe) {
     const data = await fs.readFile(fileName, "utf8");
     const stringifiedData = JSON.parse(data);
 
-    //     {
-    //         "title": "Pizzaa"
-    //    }
-
     const newObject = {
       id: uuidv4(),
       ...newRecipe,
     };
-    console.log(newObject);
 
     stringifiedData.push(newObject);
 
